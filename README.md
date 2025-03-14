@@ -1,17 +1,21 @@
-# 🛍️ Ecommerce Checkout System
+# 🛍️ Modern E-commerce Platform
 
-A modern and elegant checkout system built with React and TypeScript, offering a smooth and secure payment experience for your customers.
+A full-featured e-commerce platform built with React and TypeScript, providing a seamless shopping experience from browsing to checkout.
 
 ## ✨ Features
 
+- 🏪 Product Catalog with Categories
+- 🔍 Advanced Search and Filtering
+- 🛒 Shopping Cart Management
+- 💳 Secure Checkout System
 - 💳 Apple Pay Integration
-- 📱 Responsive Design
+- ⚡ Real-time Order Summary
+- 🏷️ Discount System
+- 🧮 Automatic Tax and Shipping Calculation
+- 👤 User Account Management
+- 📱 Fully Responsive Design
 - 🎨 Modern and Clean Interface
-- 🔒 Secure Payment Form
-- 🛒 Real-time Order Summary
-- 💰 Discount System
-- 📦 Automatic Tax and Shipping Calculation
-- 📝 Shipping and Billing Address Management
+- 🔒 Secure Authentication
 
 ## 🚀 Technologies Used
 
@@ -46,18 +50,29 @@ npm run dev
 ```
 src/
   ├── pages/
-  │   └── CheckoutPage.tsx    # Main checkout page
+  │   ├── HomePage.tsx        # Landing page
+  │   ├── ProductPage.tsx     # Individual product view
+  │   ├── CatalogPage.tsx    # Product listing
+  │   ├── CartPage.tsx       # Shopping cart
+  │   └── CheckoutPage.tsx   # Checkout process
   ├── components/            # Reusable components
-  └── types/                # TypeScript type definitions
+  ├── hooks/                # Custom React hooks
+  ├── context/              # React context providers
+  ├── services/             # API and external services
+  ├── utils/               # Helper functions
+  └── types/               # TypeScript type definitions
 ```
 
 ## 🔧 Configuration
 
-To set up payment processing, you'll need to:
+To set up the project, you'll need to:
 
-1. Configure Apple Pay credentials
-2. Integrate a payment processor (like Stripe)
-3. Set up necessary environment variables
+1. Configure authentication services
+2. Set up payment processing
+   - Apple Pay credentials
+   - Payment processor integration (like Stripe)
+3. Configure product database
+4. Set up necessary environment variables
 
 ## 🤝 Contributing
 

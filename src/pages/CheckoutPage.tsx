@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
 
 interface CartItem {
   id: string;
@@ -261,7 +260,7 @@ export default function CheckoutPage() {
                 <p className="text-gray-500">Subtotal</p>
                 <p className="font-medium">${subtotal.toFixed(2)}</p>
               </div>
-              {discount !== 0 && (
+              {typeof discount === 'number' && (
                 <div className="flex items-center justify-between text-base">
                   <div className="flex items-center">
                     <p className="text-gray-500">Discount</p>

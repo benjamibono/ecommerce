@@ -22,7 +22,6 @@ export const ProductCard = ({
   name, 
   price, 
   image, 
-  category,
   isNew, 
   isOnSale,
   sizes,

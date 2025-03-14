@@ -2,6 +2,8 @@
 
 A full-featured e-commerce platform built with React and TypeScript, providing a seamless shopping experience from browsing to checkout.
 
+🚧 **Project Status:** Work in Progress 🚧
+
 ## ✨ Features
 
 - 🏪 Product Catalog with Categories

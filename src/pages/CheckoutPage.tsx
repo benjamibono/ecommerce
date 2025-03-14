@@ -66,7 +66,7 @@ export default function CheckoutPage() {
               {/* Email */}
               <div className="mb-6">
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email address
+                  E-mail
                 </label>
                 <input
                   type="email"

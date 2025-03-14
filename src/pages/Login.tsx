@@ -12,10 +12,31 @@ const Login: React.FC = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="#" method="POST" className="space-y-6">
+        <button
+          type="button"
+          className="flex w-full justify-center items-center gap-2 rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        >
+          <img
+            src="https://www.google.com/favicon.ico"
+            alt="Google logo"
+            className="w-5 h-5"
+          />
+          Sign in with Google
+        </button>
+
+        <div className="relative mt-10">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-200" />
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="bg-white px-2 text-gray-500">Or continue with</span>
+          </div>
+        </div>
+
+        <form action="#" method="POST" className="mt-10 space-y-6">
           <div>
             <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
-              Email address
+              E-mail
             </label>
             <div className="mt-2">
               <input

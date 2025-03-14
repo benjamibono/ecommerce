@@ -13,6 +13,7 @@ import SignUp from '@/pages/SignUp';
 import Navbar from '@/components/Navbar';
 import CheckoutPage from '@/pages/CheckoutPage';
 import Favorites from '@/pages/Favorites';
+import Sale from '@/pages/Sale';
 import { FavoritesProvider } from '@/context/FavoritesContext';
 import './App.css';
 
@@ -34,6 +35,7 @@ const App: React.FC = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/favorites" element={<Favorites />} />
+          <Route path="/sale" element={<Sale />} />
         </Routes>
       </div>
     </FavoritesProvider>

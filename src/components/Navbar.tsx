@@ -33,8 +33,8 @@ const categories = [
 ]
 
 const userActions = [
-  { name: 'My Account', href: '/account', icon: UserIcon },
-  { name: 'My Orders', href: '/orders', icon: ShoppingBagIcon },
+  { name: 'My Account', href: '/login', icon: UserIcon },
+  { name: 'Cart', href: '/cart', icon: ShoppingBagIcon },
   { name: 'Wishlist', href: '/favorites', icon: HeartIcon },
 ]
 

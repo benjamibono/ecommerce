@@ -2,18 +2,27 @@ export interface Product {
   id: string;
   name: string;
   price: number;
-  originalPrice?: number;
+  discountedPrice?: number;
   image: string;
   category: string;
   isNew?: boolean;
   isOnSale?: boolean;
   isLimitedEdition?: boolean;
+  discountPercentage?: number;
   sizes: {
     name: string;
     inStock: boolean;
   }[];
   description?: string;
 }
+
+// Helper function to calculate discounted price
+const calculateDiscountedPrice = (
+  price: number,
+  discountPercentage: number
+): number => {
+  return Math.round(price * (1 - discountPercentage / 100));
+};
 
 export const products: Product[] = [
   {
@@ -36,6 +45,8 @@ export const products: Product[] = [
     id: "2",
     name: "Premium Cotton Hoodie",
     price: 80,
+    discountPercentage: 30,
+    discountedPrice: calculateDiscountedPrice(80, 30),
     image:
       "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     category: "Hoodies",
@@ -79,6 +90,8 @@ export const products: Product[] = [
     id: "5",
     name: "Urban Style Hoodie",
     price: 70,
+    discountPercentage: 30,
+    discountedPrice: calculateDiscountedPrice(70, 30),
     image:
       "https://images.unsplash.com/photo-1513789181297-6f2ec112c0bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     category: "Hoodies",
@@ -153,6 +166,8 @@ export const products: Product[] = [
     id: "10",
     name: "Premium Cotton T-Shirt",
     price: 35,
+    discountPercentage: 30,
+    discountedPrice: calculateDiscountedPrice(35, 30),
     image:
       "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     category: "T-Shirts",
@@ -194,8 +209,10 @@ export const products: Product[] = [
   },
   {
     id: "13",
-    name: "Urban Style T-Shirt",
-    price: 30,
+    name: "Graphic Print T-Shirt",
+    price: 35,
+    discountPercentage: 30,
+    discountedPrice: calculateDiscountedPrice(35, 30),
     image:
       "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     category: "T-Shirts",
@@ -271,6 +288,8 @@ export const products: Product[] = [
     id: "2",
     name: "Premium Cotton Sweatshirt",
     price: 65,
+    discountPercentage: 30,
+    discountedPrice: calculateDiscountedPrice(65, 30),
     image:
       "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     category: "Sweatshirts",
@@ -314,6 +333,8 @@ export const products: Product[] = [
     id: "5",
     name: "Urban Style Sweatshirt",
     price: 60,
+    discountPercentage: 30,
+    discountedPrice: calculateDiscountedPrice(60, 30),
     image:
       "https://images.unsplash.com/photo-1578681994506-b8f463449011?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
     category: "Sweatshirts",
@@ -366,6 +387,40 @@ export const products: Product[] = [
       { name: "S", inStock: true },
       { name: "M", inStock: true },
       { name: "L", inStock: true },
+    ],
+  },
+  {
+    id: "9",
+    name: "Vintage Sweatshirt",
+    price: 60,
+    discountPercentage: 30,
+    discountedPrice: calculateDiscountedPrice(60, 30),
+    image:
+      "https://images.unsplash.com/photo-1572495641004-28421ae29ed4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    category: "Sweatshirts",
+    isOnSale: true,
+    sizes: [
+      { name: "XS", inStock: true },
+      { name: "S", inStock: true },
+      { name: "M", inStock: true },
+      { name: "L", inStock: true },
+    ],
+  },
+  {
+    id: "17",
+    name: "Casual Sweatshirt",
+    price: 55,
+    discountPercentage: 30,
+    discountedPrice: calculateDiscountedPrice(55, 30),
+    image:
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    category: "Sweatshirts",
+    isOnSale: true,
+    sizes: [
+      { name: "S", inStock: true },
+      { name: "M", inStock: true },
+      { name: "L", inStock: true },
+      { name: "XL", inStock: true },
     ],
   },
 ];

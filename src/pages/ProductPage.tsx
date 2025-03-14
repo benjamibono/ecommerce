@@ -14,16 +14,19 @@ export default function ProductPage() {
   const [selectedSize, setSelectedSize] = useState(product?.sizes[0])
   
   if (!product) {
-    return <div className="text-center py-12">Producto no encontrado</div>
+    return <div className="text-center py-12">Product not found</div>
   }
 
   const productForFavorite = {
     id: parseInt(product.id),
     title: product.name,
-    price: product.price,
+    price: product.isOnSale && product.discountedPrice ? product.discountedPrice : product.price,
     image: product.image,
     description: product.description || '',
   }
+
+  // Calculate discount percentage if discountPercentage exists
+  const discountPercentage = product.discountPercentage || 0
 
   return (
     <div className="bg-white">
@@ -37,6 +40,11 @@ export default function ProductPage() {
                 alt={product.name}
                 className="h-full w-full rounded-lg object-cover object-center"
               />
+              {product.isOnSale && product.discountedPrice && (
+                <span className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-md text-sm font-medium">
+                  -{discountPercentage}% OFF
+                </span>
+              )}
               <div className="absolute top-4 right-4">
                 <FavoriteButton product={productForFavorite} />
               </div>
@@ -48,12 +56,12 @@ export default function ProductPage() {
             <h1 className="text-3xl font-bold tracking-tight text-gray-900">{product.name}</h1>
 
             <div className="mt-3">
-              <h2 className="sr-only">Información del producto</h2>
+              <h2 className="sr-only">Product information</h2>
               <div className="flex items-center gap-4">
-                {product.originalPrice ? (
+                {product.discountedPrice ? (
                   <>
-                    <p className="text-3xl tracking-tight text-gray-900">${product.price}</p>
-                    <p className="text-2xl tracking-tight text-gray-500 line-through">${product.originalPrice}</p>
+                    <p className="text-3xl tracking-tight text-red-600 font-semibold">${product.discountedPrice}</p>
+                    <p className="text-2xl tracking-tight text-gray-500 line-through">${product.price}</p>
                   </>
                 ) : (
                   <p className="text-3xl tracking-tight text-gray-900">${product.price}</p>
@@ -61,27 +69,27 @@ export default function ProductPage() {
               </div>
             </div>
 
-            {/* Estado del producto */}
+            {/* Product status */}
             <div className="mt-4 space-x-2">
-              {product.isNew && (
+              {product.isNew && !product.isOnSale && (
                 <span className="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
-                  Nuevo
+                  New
                 </span>
               )}
               {product.isOnSale && (
                 <span className="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">
-                  En Oferta
+                  On Sale
                 </span>
               )}
               {product.isLimitedEdition && (
                 <span className="inline-flex items-center rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800">
-                  Edición Limitada
+                  Limited Edition
                 </span>
               )}
             </div>
 
             <div className="mt-10">
-              <h3 className="text-sm font-medium text-gray-900">Descripción</h3>
+              <h3 className="text-sm font-medium text-gray-900">Description</h3>
               <div className="mt-4 prose prose-sm text-gray-500">
                 <p>{product.description || `${product.name} - ${product.category}`}</p>
               </div>
@@ -91,9 +99,9 @@ export default function ProductPage() {
               {/* Sizes */}
               <div className="mt-8">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-medium text-gray-900">Talla</h3>
+                  <h3 className="text-sm font-medium text-gray-900">Size</h3>
                   <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                    Guía de tallas
+                    Size guide
                   </a>
                 </div>
                 <RadioGroup
@@ -148,13 +156,13 @@ export default function ProductPage() {
                 type="submit"
                 className="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
-                Agregar al Carrito
+                Add to Cart
               </button>
             </form>
 
-            {/* Categoría */}
+            {/* Category */}
             <div className="mt-8 border-t border-gray-200 pt-8">
-              <h2 className="text-sm font-medium text-gray-900">Categoría</h2>
+              <h2 className="text-sm font-medium text-gray-900">Category</h2>
               <div className="prose prose-sm mt-4 text-gray-500">
                 <p>{product.category}</p>
               </div>
@@ -164,4 +172,4 @@ export default function ProductPage() {
       </div>
     </div>
   )
-} 
+}

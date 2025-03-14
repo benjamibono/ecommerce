@@ -4,10 +4,12 @@ interface Product {
   id: string
   name: string
   price: number
+  discountedPrice?: number
   image: string
   category: string
   isNew?: boolean
   isOnSale?: boolean
+  discountPercentage?: number
   sizes: {
     name: string;
     inStock: boolean;
@@ -38,10 +40,12 @@ export const ProductGrid = ({ title, products, columns = 4 }: ProductGridProps) 
               id={product.id}
               name={product.name}
               price={product.price}
+              discountedPrice={product.discountedPrice}
               image={product.image}
               category={product.category}
               isNew={product.isNew}
               isOnSale={product.isOnSale}
+              discountPercentage={product.discountPercentage}
               sizes={product.sizes}
             />
           ))}

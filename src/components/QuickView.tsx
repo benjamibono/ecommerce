@@ -8,8 +8,10 @@ interface Product {
   id: number;
   title: string;
   price: number;
+  discountedPrice?: number;
   image: string;
   description: string;
+  isOnSale?: boolean;
   sizes: {
     name: string;
     inStock: boolean;
@@ -28,6 +30,11 @@ function classNames(...classes: string[]) {
 
 export default function QuickView({ product, open, onClose }: QuickViewProps) {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0])
+  
+  // Calculate discount percentage if discountedPrice exists
+  const discountPercentage = product.discountedPrice 
+    ? Math.round((1 - product.discountedPrice / product.price) * 100) 
+    : 0
 
   return (
     <Dialog 
@@ -50,11 +57,18 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
             </button>
 
             <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
-              <img
-                alt={product.title}
-                src={product.image}
-                className="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover sm:col-span-4 lg:col-span-5"
-              />
+              <div className="relative sm:col-span-4 lg:col-span-5">
+                <img
+                  alt={product.title}
+                  src={product.image}
+                  className="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover"
+                />
+                {product.isOnSale && product.discountedPrice && (
+                  <span className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded">
+                    -{discountPercentage}%
+                  </span>
+                )}
+              </div>
               <div className="sm:col-span-8 lg:col-span-7">
                 <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{product.title}</h2>
 
@@ -63,7 +77,14 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
                     Product information
                   </h3>
 
-                  <p className="text-2xl text-gray-900">${product.price.toFixed(0)}</p>
+                  {product.discountedPrice ? (
+                    <div className="flex items-center gap-4">
+                      <p className="text-2xl font-semibold text-red-600">${product.discountedPrice.toFixed(0)}</p>
+                      <p className="text-xl text-gray-500 line-through">${product.price.toFixed(0)}</p>
+                    </div>
+                  ) : (
+                    <p className="text-2xl text-gray-900">${product.price.toFixed(0)}</p>
+                  )}
                 </section>
 
                 <section aria-labelledby="options-heading" className="mt-10">

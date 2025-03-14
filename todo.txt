@@ -1,0 +1,29 @@
+# E-commerce Website Todo List
+
+## High Priority
+- Make a Home page
+- Make a footer 
+- Implement user authentication with JWT
+- Add product filtering by price, size, and color
+- Implement shopping cart functionality with local storage
+- Fix cart functionality
+- Change links from id to name
+
+## Medium Priority
+- Implement search functionality with autocomplete
+- Create user profile page with order history
+- Add pagination to product listings
+- Create a newsletter subscription form
+
+## Low Priority
+- Add social media sharing buttons
+- Implement dark mode toggle
+- Implement internationalization (i18n) for multiple languages
+- Add product zoom functionality on hover
+- Create a FAQ page
+
+## Bug Fixes
+- Fix mobile responsiveness issues
+- Ensure all links work correctly
+- Optimize images for faster loading
+- Fix any accessibility issues

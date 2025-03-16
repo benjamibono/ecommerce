@@ -2,7 +2,6 @@
 
 ## High Priority
 - Make a Home page
-- Make a footer 
 - Implement user authentication with JWT
 - Add product filtering by price, size, and color
 - Implement shopping cart functionality with local storage

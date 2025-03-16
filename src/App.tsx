@@ -17,7 +17,7 @@ import Sale from '@/pages/Sale';
 import NewArrivals from '@/pages/New';
 import { FavoritesProvider } from '@/context/FavoritesContext';
 import './App.css';
-
+import Footer from '@/components/Footer';
 const App: React.FC = () => {
   return (
     <FavoritesProvider>
@@ -39,6 +39,7 @@ const App: React.FC = () => {
           <Route path="/sale" element={<Sale />} />
           <Route path="/new" element={<NewArrivals />} />
         </Routes>
+        <Footer />
       </div>
     </FavoritesProvider>
   );

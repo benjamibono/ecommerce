@@ -35,14 +35,14 @@ const Favorites: React.FC = () => {
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-3xl font-extrabold text-gray-900 mb-8">Your Favorites</h1>
-        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid  gap-y-10 gap-x-6 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {favorites.map((product) => (
             <div key={product.id} className="group relative bg-white p-4 rounded-lg shadow">
-              <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-90 lg:h-80 lg:aspect-none">
+              <div className="w-full min-h-[200px] sm:min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-90 lg:h-80 lg:aspect-none">
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                  className="w-full h-[200px] sm:h-full object-contain sm:object-cover lg:w-full lg:h-full"
                 />
               </div>
               <div className="mt-4 flex justify-between items-center">

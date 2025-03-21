@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import QuickView from './QuickView'
 import FavoriteButton from './FavoriteButton'
-import { useCart } from '@/context/CartContext'
 
 interface ProductCardProps {
   id: string

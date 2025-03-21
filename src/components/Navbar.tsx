@@ -192,7 +192,7 @@ export default function Navbar() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 flex items-center gap-2"
+                    className="-mx-3 flex rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 items-center gap-2"
                   >
                     <item.icon className="size-5" />
                     {item.name}

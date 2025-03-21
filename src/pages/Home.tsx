@@ -1,7 +1,6 @@
 import { ProductGrid } from "@/components/ProductGrid";
 import { Link } from "react-router-dom";
 import { products } from "@/data/products";
-import Footer from "@/components/Footer";
 
 const Home = () => {
   return (

@@ -3,8 +3,6 @@
 ## High Priority
 - Redesign home page
 - Implement user authentication with JWT
-- Add product filtering by price, size, and color
-- Implement shopping cart functionality with local storage
 - Change links from id to name
 
 ## Medium Priority

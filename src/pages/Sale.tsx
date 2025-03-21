@@ -1,8 +1,48 @@
+import { useState, useMemo } from 'react'
 import { ProductGrid } from '@/components/ProductGrid'
 import { products } from '@/data/products'
+import ProductFilters, { SortOption } from '@/components/ProductFilters'
 
 export default function SalePage() {
+  const [selectedSizes, setSelectedSizes] = useState<string[]>([])
+  const [currentSort, setCurrentSort] = useState<SortOption>('name-asc')
+
   const saleProducts = products.filter(product => product.isOnSale)
+
+  const filteredAndSortedProducts = useMemo(() => {
+    let filtered = saleProducts;
+
+    // Apply size filter
+    if (selectedSizes.length > 0) {
+      filtered = filtered.filter(product =>
+        product.sizes.some(size => selectedSizes.includes(size.name))
+      );
+    }
+
+    // Apply sorting
+    return [...filtered].sort((a, b) => {
+      switch (currentSort) {
+        case 'name-asc':
+          return a.name.localeCompare(b.name);
+        case 'name-desc':
+          return b.name.localeCompare(a.name);
+        case 'price-asc':
+          return (a.discountedPrice || a.price) - (b.discountedPrice || b.price);
+        case 'price-desc':
+          return (b.discountedPrice || b.price) - (a.discountedPrice || a.price);
+        default:
+          return 0;
+      }
+    });
+  }, [saleProducts, selectedSizes, currentSort]);
+
+  const handleSizeChange = (size: string) => {
+    setSelectedSizes(prev =>
+      prev.includes(size)
+        ? prev.filter(s => s !== size)
+        : [...prev, size]
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -16,12 +56,22 @@ export default function SalePage() {
             Discover our selection of products on sale. Don't miss these amazing opportunities!
           </p>
         </div>
-        <div className="mt-12">
-          <ProductGrid 
-            title="Sale Products" 
-            products={saleProducts}
-            columns={4}
+        
+        <div className="mt-8">
+          <ProductFilters
+            selectedSizes={selectedSizes}
+            onSizeChange={handleSizeChange}
+            onSortChange={setCurrentSort}
+            currentSort={currentSort}
           />
+          
+          <div className="mt-6">
+            <ProductGrid 
+              title="Sale Products" 
+              products={filteredAndSortedProducts}
+              columns={4}
+            />
+          </div>
         </div>
       </div>
     </div>

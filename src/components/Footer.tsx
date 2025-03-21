@@ -8,25 +8,25 @@ const Footer = () => {
     <footer className="bg-white border-t border-gray-200">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Newsletter subscription */}
-        <div className="border-b border-gray-200 pb-8">
+        <div className="bg-indigo-700 rounded-lg mb-8 px-6 py-8 w-full">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
             <div className="max-w-md">
-              <h3 className="text-base font-medium text-gray-900">Sign up for our newsletter</h3>
-              <p className="mt-2 text-sm text-gray-600">
-                Be the first to know about new arrivals, sales, and exclusive offers.
+              <h3 className="text-xl font-bold tracking-tight text-white">Sign up for our newsletter</h3>
+              <p className="mt-2 text-sm text-indigo-200">
+                Get the latest updates on new products and upcoming sales. No spam, we promise.
               </p>
             </div>
             <div className="w-full md:w-auto">
-              <form className="flex flex-col sm:flex-row gap-3">
+              <form className="flex flex-col sm:flex-row gap-3 w-full">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="min-w-0 flex-auto rounded-md border border-gray-300 px-4 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  className="min-w-0 flex-auto rounded-md border border-transparent px-5 py-3 bg-white placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white focus:border-white"
                   required
                 />
                 <button
                   type="submit"
-                  className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full sm:w-auto flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white"
                 >
                   Subscribe
                 </button>

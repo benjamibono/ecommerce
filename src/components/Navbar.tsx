@@ -23,6 +23,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { useFavorites } from '@/context/FavoritesContext'
+import { useCart } from '@/context/CartContext'
 
 const categories = [
   { name: 'Hoodies', description: 'Comfortable and stylish hoodies', href: '/category/hoodies', icon: ShoppingBagIcon },
@@ -41,6 +42,7 @@ const userActions = [
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { favorites } = useFavorites()
+  const { toggleCart, totalItems } = useCart()
 
   return (
     <header className="bg-white shadow-sm">
@@ -117,9 +119,14 @@ export default function Navbar() {
                 </span>
               )}
             </Link>
-            <Link to="/cart" className="p-2 hover:bg-gray-100 rounded-full">
+            <button onClick={toggleCart} className="p-2 hover:bg-gray-100 rounded-full relative">
               <ShoppingBagIcon className="h-6 w-6" />
-            </Link>
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-indigo-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </button>
           </div>
         </div>
       </nav>

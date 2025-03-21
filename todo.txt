@@ -1,19 +1,16 @@
 # E-commerce Website Todo List
 
 ## High Priority
-- Make a Home page
+- Redesign home page
 - Implement user authentication with JWT
 - Add product filtering by price, size, and color
 - Implement shopping cart functionality with local storage
-- Fix cart functionality
 - Change links from id to name
-- Disable Quickview on mobile
 
 ## Medium Priority
 - Implement search functionality with autocomplete
 - Create user profile page with order history
 - Add pagination to product listings
-- Create a newsletter subscription form
 - Make a out of stock badge
 
 ## Low Priority

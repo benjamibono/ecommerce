@@ -16,31 +16,39 @@ import Favorites from '@/pages/Favorites';
 import Sale from '@/pages/Sale';
 import NewArrivals from '@/pages/New';
 import { FavoritesProvider } from '@/context/FavoritesContext';
+import { CartProvider } from '@/context/CartContext';
+import CartPanel from '@/components/CartPanel';
+import ScrollToTop from '@/components/ScrollToTop';
 import './App.css';
 import Footer from '@/components/Footer';
+
 const App: React.FC = () => {
   return (
     <FavoritesProvider>
-      <div className="min-h-screen bg-gray-100">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/category/hoodies" element={<Hoodies />} />
-          <Route path="/category/t-shirts" element={<TShirts />} />
-          <Route path="/category/sweatshirts" element={<Sweatshirts />} />
-          <Route path="/category/collections" element={<Collections />} />
-          <Route path="/category/limited" element={<LimitedEdition />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/sale" element={<Sale />} />
-          <Route path="/new" element={<NewArrivals />} />
-        </Routes>
-        <Footer />
-      </div>
+      <CartProvider>
+        <div className="min-h-screen bg-gray-100">
+          <ScrollToTop />
+          <Navbar />
+          <CartPanel />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/category/hoodies" element={<Hoodies />} />
+            <Route path="/category/t-shirts" element={<TShirts />} />
+            <Route path="/category/sweatshirts" element={<Sweatshirts />} />
+            <Route path="/category/collections" element={<Collections />} />
+            <Route path="/category/limited" element={<LimitedEdition />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/sale" element={<Sale />} />
+            <Route path="/new" element={<NewArrivals />} />
+          </Routes>
+          <Footer />
+        </div>
+      </CartProvider>
     </FavoritesProvider>
   );
 };

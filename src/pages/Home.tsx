@@ -27,7 +27,7 @@ const Home = () => {
           </p>
           <div className="mt-10">
             <Link
-              to="/new-arrivals"
+              to="/new"
               className="inline-block bg-white border border-transparent rounded-md py-3 px-8 font-medium text-gray-900 hover:bg-gray-100"
             >
               Shop New Arrivals
@@ -160,7 +160,6 @@ const Home = () => {
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Radio, RadioGroup } from '@headlessui/react'
 import FavoriteButton from '@/components/FavoriteButton'
 import { products } from '@/data/products'
+import { useCart } from '@/context/CartContext'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -12,6 +13,7 @@ export default function ProductPage() {
   const { id } = useParams<{ id: string }>()
   const product = products.find(p => p.id === id)
   const [selectedSize, setSelectedSize] = useState(product?.sizes[0])
+  const { addToCart } = useCart()
   
   if (!product) {
     return <div className="text-center py-12">Product not found</div>
@@ -23,6 +25,21 @@ export default function ProductPage() {
     price: product.isOnSale && product.discountedPrice ? product.discountedPrice : product.price,
     image: product.image,
     description: product.description || '',
+  }
+
+  const handleAddToCart = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!selectedSize?.inStock) return
+
+    addToCart({
+      id: parseInt(product.id),
+      name: product.name,
+      href: `/product/${product.id}`,
+      color: selectedSize.name,
+      price: product.isOnSale && product.discountedPrice ? product.discountedPrice : product.price,
+      imageSrc: product.image,
+      imageAlt: product.description || product.name,
+    })
   }
 
   // Calculate discount percentage if discountPercentage exists
@@ -95,7 +112,7 @@ export default function ProductPage() {
               </div>
             </div>
 
-            <form className="mt-8">
+            <form onSubmit={handleAddToCart} className="mt-8">
               {/* Sizes */}
               <div className="mt-8">
                 <div className="flex items-center justify-between">
@@ -154,9 +171,10 @@ export default function ProductPage() {
 
               <button
                 type="submit"
-                className="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                disabled={!selectedSize?.inStock}
+                className="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                Add to Cart
+                {selectedSize?.inStock ? 'Add to Cart' : 'Out of Stock'}
               </button>
             </form>
 

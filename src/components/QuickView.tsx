@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import { Radio, RadioGroup } from '@headlessui/react'
+import { useCart } from '@/context/CartContext'
 
 interface Product {
   id: number;
@@ -30,17 +31,55 @@ function classNames(...classes: string[]) {
 
 export default function QuickView({ product, open, onClose }: QuickViewProps) {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0])
+  const { addToCart } = useCart()
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+  
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // If on mobile, redirect to product page instead of showing QuickView
+  useEffect(() => {
+    if (isMobile && open) {
+      onClose()
+      window.location.href = `/product/${product.id}`
+    }
+  }, [isMobile, open, product.id, onClose])
+
+  // Don't render anything on mobile
+  if (isMobile) return null
   
   // Calculate discount percentage if discountedPrice exists
   const discountPercentage = product.discountedPrice 
     ? Math.round((1 - product.discountedPrice / product.price) * 100) 
     : 0
 
+  const handleAddToCart = () => {
+    if (!selectedSize.inStock) return;
+
+    addToCart({
+      id: product.id,
+      name: product.title,
+      href: `/product/${product.id}`,
+      color: selectedSize.name, // Using size as color since we don't have color in the product interface
+      price: product.discountedPrice || product.price,
+      imageSrc: product.image,
+      imageAlt: product.description,
+    });
+    onClose();
+  };
+
   return (
     <Dialog 
       open={open} 
       onClose={onClose} 
-      className="relative z-50"
+      className="relative z-50 hidden md:block" // Hide on mobile, show on md and up
     >
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
 
@@ -147,12 +186,15 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
                   <div className="mt-8 flex flex-col gap-4">
                     <button
                       type="button"
-                      className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden"
+                      onClick={handleAddToCart}
+                      disabled={!selectedSize.inStock}
+                      className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden disabled:bg-gray-400 disabled:cursor-not-allowed"
                     >
-                      Add to Cart
+                      {selectedSize.inStock ? 'Add to Cart' : 'Out of Stock'}
                     </button>
                     <Link
                       to={`/product/${product.id}`}
+                      onClick={onClose}
                       className="mt-2 flex w-full items-center justify-center rounded-md border border-indigo-600 bg-white px-8 py-3 text-base font-medium text-indigo-600 hover:bg-indigo-50 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden"
                     >
                       View Product Details

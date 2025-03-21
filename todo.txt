@@ -4,9 +4,12 @@
 - Redesign home page
 - Implement user authentication with JWT
 - Change links from id to name
+- Responsive design on Size filter and checkout page
+- Make favourite cards square (at least for mobile)
 
 ## Medium Priority
 - Implement search functionality with autocomplete
+- footer 2 column for mobile
 - Create user profile page with order history
 - Add pagination to product listings
 - Make a out of stock badge

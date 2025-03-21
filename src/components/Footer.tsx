@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
 
         {/* Main footer content */}
-        <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-8 grid grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Shop */}
           <div>
             <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Shop</h3>

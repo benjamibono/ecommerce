@@ -1,7 +1,7 @@
 # E-commerce Website Todo List
 
 ## High Priority
-- Redesign home page
+- Make design responsive for 4k screens
 
 ## Medium Priority
 - Implement search functionality with autocomplete

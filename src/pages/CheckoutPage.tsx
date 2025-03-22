@@ -266,7 +266,7 @@ export default function CheckoutPage() {
           </div>
 
           {/* Order Summary - Desktop */}
-          <div className="hidden lg:block px-8">
+          <div className="hidden lg:block px-4 py-6 sm:px-6 lg:px-8 lg:py-12">
             <div className="lg:sticky lg:top-8">
               <div className="bg-white p-6 sm:p-8 shadow-sm rounded-lg">
                 <h2 className="text-lg font-medium text-gray-900 mb-6">Order summary</h2>

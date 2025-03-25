@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import Fuse from "fuse.js";
+import Fuse, { FuseResult } from "fuse.js";
 import { products } from "@/data/products";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog } from "@headlessui/react";
@@ -31,9 +31,9 @@ interface SearchBarProps {
 
 export default function SearchBar({ isOpen, onClose }: SearchBarProps) {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<
-    Fuse.FuseResult<(typeof products)[0]>[]
-  >([]);
+  const [results, setResults] = useState<FuseResult<(typeof products)[0]>[]>(
+    []
+  );
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
 

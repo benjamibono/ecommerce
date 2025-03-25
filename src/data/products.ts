@@ -27,7 +27,7 @@ const calculateDiscountedPrice = (
 export const products: Product[] = [
   {
     id: "1",
-    name: "Classic Hoodie",
+    name: "1",
     price: 50,
     image: "/images/1.png",
     category: "Hoodies",
@@ -42,7 +42,7 @@ export const products: Product[] = [
   },
   {
     id: "2",
-    name: "Premium Cotton Hoodie",
+    name: "2",
     price: 80,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(80, 30),
@@ -58,7 +58,7 @@ export const products: Product[] = [
   },
   {
     id: "3",
-    name: "Sport Hoodie",
+    name: "3",
     price: 60,
     image: "/images/3.png",
     category: "Hoodies",
@@ -71,7 +71,7 @@ export const products: Product[] = [
   },
   {
     id: "4",
-    name: "Limited Edition Hoodie",
+    name: "4",
     price: 90,
     image: "/images/4.png",
     category: "Hoodies",
@@ -84,7 +84,7 @@ export const products: Product[] = [
   },
   {
     id: "5",
-    name: "Urban Style Hoodie",
+    name: "5",
     price: 70,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(70, 30),
@@ -101,7 +101,7 @@ export const products: Product[] = [
   },
   {
     id: "6",
-    name: "Winter Hoodie",
+    name: "6",
     price: 100,
     image: "/images/6.png",
     category: "Hoodies",
@@ -114,7 +114,7 @@ export const products: Product[] = [
   },
   {
     id: "7",
-    name: "Streetwear Hoodie",
+    name: "7",
     price: 85,
     image: "/images/7.png",
     category: "Hoodies",
@@ -127,7 +127,7 @@ export const products: Product[] = [
   },
   {
     id: "8",
-    name: "Designer Hoodie",
+    name: "8",
     price: 130,
     image: "/images/8.png",
     category: "Hoodies",
@@ -140,7 +140,7 @@ export const products: Product[] = [
   },
   {
     id: "9",
-    name: "Classic T-Shirt",
+    name: "9",
     price: 25,
     image: "/images/9.png",
     category: "T-Shirts",
@@ -155,7 +155,7 @@ export const products: Product[] = [
   },
   {
     id: "10",
-    name: "Premium Cotton T-Shirt",
+    name: "10",
     price: 35,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(35, 30),
@@ -171,7 +171,7 @@ export const products: Product[] = [
   },
   {
     id: "11",
-    name: "Sport T-Shirt",
+    name: "11",
     price: 30,
     image: "/images/11.png",
     category: "T-Shirts",
@@ -184,7 +184,7 @@ export const products: Product[] = [
   },
   {
     id: "12",
-    name: "Limited Edition T-Shirt",
+    name: "12",
     price: 40,
     image: "/images/12.png",
     category: "T-Shirts",
@@ -197,7 +197,7 @@ export const products: Product[] = [
   },
   {
     id: "13",
-    name: "Graphic Print T-Shirt",
+    name: "13",
     price: 35,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(35, 30),
@@ -214,7 +214,7 @@ export const products: Product[] = [
   },
   {
     id: "14",
-    name: "Summer T-Shirt",
+    name: "14",
     price: 35,
     image: "/images/14.png",
     category: "T-Shirts",
@@ -227,7 +227,7 @@ export const products: Product[] = [
   },
   {
     id: "15",
-    name: "Streetwear T-Shirt",
+    name: "15",
     price: 30,
     image: "/images/15.png",
     category: "T-Shirts",
@@ -241,7 +241,7 @@ export const products: Product[] = [
   },
   {
     id: "16",
-    name: "Designer T-Shirt",
+    name: "16",
     price: 45,
     image: "/images/16.png",
     category: "T-Shirts",
@@ -253,8 +253,8 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "1",
-    name: "Classic Sweatshirt",
+    id: "17",
+    name: "17",
     price: 45,
     image: "/images/17.png",
     category: "Sweatshirts",
@@ -268,8 +268,8 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "2",
-    name: "Premium Cotton Sweatshirt",
+    id: "18",
+    name: "18",
     price: 65,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(65, 30),
@@ -284,8 +284,8 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "3",
-    name: "Sport Sweatshirt",
+    id: "19",
+    name: "19",
     price: 55,
     image: "/images/19.png",
     category: "Sweatshirts",
@@ -297,8 +297,8 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "4",
-    name: "Limited Edition Sweatshirt",
+    id: "20",
+    name: "20",
     price: 75,
     image: "/images/20.png",
     category: "Sweatshirts",
@@ -310,8 +310,8 @@ export const products: Product[] = [
     ],
   },
   {
-    id: "5",
-    name: "Urban Style Sweatshirt",
+    id: "21",
+    name: "21",
     price: 60,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(60, 30),
@@ -325,5 +325,5 @@ export const products: Product[] = [
       { name: "L", inStock: true },
       { name: "XL", inStock: true },
     ],
-  }
+  },
 ];

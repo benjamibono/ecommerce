@@ -1,36 +1,36 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import QuickView from './QuickView'
-import FavoriteButton from './FavoriteButton'
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import QuickView from "./QuickView";
+import FavoriteButton from "./FavoriteButton";
 
 interface ProductCardProps {
-  id: string
-  name: string
-  price: number
-  discountedPrice?: number
-  image: string
-  category: string
-  isNew?: boolean
-  isOnSale?: boolean
-  discountPercentage?: number
+  id: string;
+  name: string;
+  price: number;
+  discountedPrice?: number;
+  image: string;
+  category: string;
+  isNew?: boolean;
+  isOnSale?: boolean;
+  discountPercentage?: number;
   sizes: {
     name: string;
     inStock: boolean;
   }[];
 }
 
-export const ProductCard = ({ 
+export const ProductCard = ({
   id,
-  name, 
-  price, 
+  name,
+  price,
   discountedPrice,
-  image, 
-  isNew, 
+  image,
+  isNew,
   isOnSale,
   discountPercentage = 0,
   sizes,
 }: ProductCardProps) => {
-  const [quickViewOpen, setQuickViewOpen] = useState(false)
+  const [quickViewOpen, setQuickViewOpen] = useState(false);
 
   const product = {
     id: parseInt(id),
@@ -41,17 +41,20 @@ export const ProductCard = ({
     description: name, // Using name as description for now
     isOnSale: isOnSale,
     sizes: sizes,
-  }
+  };
 
   const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault()
-    setQuickViewOpen(true)
-  }
+    e.preventDefault();
+    setQuickViewOpen(true);
+  };
 
   return (
     <>
       <div className="group relative flex flex-col">
-        <Link to={`/product/${id}`} className="block relative aspect-square overflow-hidden rounded-lg bg-gray-100">
+        <Link
+          to={`/product/${id}`}
+          className="block relative aspect-square overflow-hidden rounded-lg bg-gray-100"
+        >
           <img
             src={image}
             alt={name}
@@ -76,11 +79,17 @@ export const ProductCard = ({
           <div className="mt-1 flex items-center gap-2">
             {isOnSale && discountedPrice ? (
               <div className="flex items-baseline gap-2">
-                <span className="text-base text-gray-500 line-through">${price.toFixed(0)}</span>
-                <span className="text-lg font-semibold text-red-600">${discountedPrice.toFixed(0)}</span>
+                <span className="text-base text-gray-500 line-through">
+                  {price.toFixed(0)} €
+                </span>
+                <span className="text-lg font-semibold text-red-600">
+                  {discountedPrice.toFixed(0)} €
+                </span>
               </div>
             ) : (
-              <p className="text-lg font-semibold text-gray-900">${price.toFixed(0)}</p>
+              <p className="text-lg font-semibold text-gray-900">
+                {price.toFixed(0)} €
+              </p>
             )}
           </div>
           <button
@@ -91,11 +100,11 @@ export const ProductCard = ({
           </button>
         </div>
       </div>
-      <QuickView 
+      <QuickView
         product={product}
         open={quickViewOpen}
         onClose={() => setQuickViewOpen(false)}
       />
     </>
-  )
-}
+  );
+};

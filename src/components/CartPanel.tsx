@@ -1,16 +1,21 @@
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
-import { XMarkIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
-import { useCart } from '@/context/CartContext';
+import {
+  Dialog,
+  DialogBackdrop,
+  DialogPanel,
+  DialogTitle,
+} from "@headlessui/react";
+import { XMarkIcon, MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import { useCart } from "@/context/CartContext";
 
 export default function CartPanel() {
-  const { 
-    isCartOpen, 
-    closeCart, 
-    cartItems, 
-    removeFromCart, 
+  const {
+    isCartOpen,
+    closeCart,
+    cartItems,
+    removeFromCart,
     updateQuantity,
-    subtotal 
+    subtotal,
   } = useCart();
 
   return (
@@ -49,9 +54,14 @@ export default function CartPanel() {
                   <div className="mt-8">
                     <div className="flow-root">
                       {cartItems.length === 0 ? (
-                        <p className="text-gray-500 text-center py-8">Your cart is empty</p>
+                        <p className="text-gray-500 text-center py-8">
+                          Your cart is empty
+                        </p>
                       ) : (
-                        <ul role="list" className="-my-6 divide-y divide-gray-200">
+                        <ul
+                          role="list"
+                          className="-my-6 divide-y divide-gray-200"
+                        >
                           {cartItems.map((product) => (
                             <li key={product.id} className="flex py-6">
                               <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -66,16 +76,30 @@ export default function CartPanel() {
                                 <div>
                                   <div className="flex justify-between text-base font-medium text-gray-900">
                                     <h3>
-                                      <Link to={product.href} onClick={closeCart}>{product.name}</Link>
+                                      <Link
+                                        to={product.href}
+                                        onClick={closeCart}
+                                      >
+                                        {product.name}
+                                      </Link>
                                     </h3>
-                                    <p className="ml-4">{product.price.toFixed(2)}€</p>
+                                    <p className="ml-4">
+                                      {product.price.toFixed(2)} €
+                                    </p>
                                   </div>
-                                  <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                                  <p className="mt-1 text-sm text-gray-500">
+                                    {product.color}
+                                  </p>
                                 </div>
                                 <div className="flex flex-1 items-end justify-between text-sm">
                                   <div className="flex items-center gap-2">
                                     <button
-                                      onClick={() => updateQuantity(product.id, product.quantity - 1)}
+                                      onClick={() =>
+                                        updateQuantity(
+                                          product.id,
+                                          product.quantity - 1
+                                        )
+                                      }
                                       className="rounded-full p-1 text-gray-400 hover:text-gray-500"
                                     >
                                       <MinusIcon className="size-4" />
@@ -84,7 +108,12 @@ export default function CartPanel() {
                                       {product.quantity}
                                     </span>
                                     <button
-                                      onClick={() => updateQuantity(product.id, product.quantity + 1)}
+                                      onClick={() =>
+                                        updateQuantity(
+                                          product.id,
+                                          product.quantity + 1
+                                        )
+                                      }
                                       className="rounded-full p-1 text-gray-400 hover:text-gray-500"
                                     >
                                       <PlusIcon className="size-4" />
@@ -130,7 +159,7 @@ export default function CartPanel() {
                     </div>
                     <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                       <p>
-                        or{' '}
+                        or{" "}
                         <button
                           type="button"
                           onClick={closeCart}
@@ -150,4 +179,4 @@ export default function CartPanel() {
       </div>
     </Dialog>
   );
-} 
+}

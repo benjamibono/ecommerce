@@ -53,14 +53,14 @@ const Home = () => {
               className="col-span-12 md:col-span-6 relative rounded-lg overflow-hidden group h-[28rem] md:h-[36rem] block"
             >
               <img
-                src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                alt="T-Shirts"
+                src="/images/9.png"
+                alt="Classic T-Shirt"
                 className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 text-white">
                 <h3 className="text-2xl font-bold">T-Shirts</h3>
-                <p className="mt-2 text-sm">Classic Style</p>
+                <p className="mt-2 text-sm">Starting at 25 €</p>
               </div>
             </Link>
 
@@ -72,14 +72,14 @@ const Home = () => {
                 className="relative rounded-lg overflow-hidden group h-56 md:h-[17.5rem] block"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1565978771542-0db9ab9ad3de?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Hoodies"
+                  src="/images/13.png"
+                  alt="Graphic Print T-Shirt"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-4 text-white">
                   <h3 className="text-2xl font-bold">Hoodies</h3>
-                  <p className="mt-2 text-sm">Stay cozy</p>
+                  <p className="mt-2 text-sm">Starting at 50 €</p>
                 </div>
               </Link>
 
@@ -89,14 +89,14 @@ const Home = () => {
                 className="relative rounded-lg overflow-hidden group h-56 md:h-[17.5rem] block"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Sweatshirts"
+                  src="/images/17.png"
+                  alt="Classic Sweatshirt"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-4 text-white">
                   <h3 className="text-2xl font-bold">Sweatshirts</h3>
-                  <p className="mt-2 text-sm">Everyday comfort</p>
+                  <p className="mt-2 text-sm">Starting at 45 €</p>
                 </div>
               </Link>
             </div>
@@ -154,54 +154,57 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Black Basic Tee */}
-            <Link to="/product/black-basic-tee" className="group">
+            {/* Classic Hoodie */}
+            <Link to="/product/1" className="group">
               <div className="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Black Basic Tee"
+                  src="/images/1.png"
+                  alt="Classic Hoodie"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
               </div>
               <div className="mt-4">
                 <h3 className="text-lg font-medium text-gray-900">
-                  Black Basic Tee
+                  Classic Hoodie
                 </h3>
-                <p className="mt-1 text-sm text-gray-500">$32</p>
+                <p className="mt-1 text-sm text-gray-500">50 €</p>
               </div>
             </Link>
 
-            {/* Off-White Basic Tee */}
-            <Link to="/product/off-white-basic-tee" className="group">
+            {/* Premium Cotton T-Shirt */}
+            <Link to="/product/10" className="group">
               <div className="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Off-White Basic Tee"
+                  src="/images/10.png"
+                  alt="Premium Cotton T-Shirt"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
               </div>
               <div className="mt-4">
                 <h3 className="text-lg font-medium text-gray-900">
-                  Off-White Basic Tee
+                  Premium Cotton T-Shirt
                 </h3>
-                <p className="mt-1 text-sm text-gray-500">$32</p>
+                <p className="mt-1 text-sm text-gray-500">
+                  <span className="line-through text-gray-400">{35} €</span>{" "}
+                  <span className="text-red-600">{24.5} €</span>
+                </p>
               </div>
             </Link>
 
-            {/* Mountains Artwork Tee */}
-            <Link to="/product/mountains-artwork-tee" className="group">
+            {/* Limited Edition Sweatshirt */}
+            <Link to="/product/4" className="group">
               <div className="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Mountains Artwork Tee"
+                  src="/images/20.png"
+                  alt="Limited Edition Sweatshirt"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
               </div>
               <div className="mt-4">
                 <h3 className="text-lg font-medium text-gray-900">
-                  Mountains Artwork Tee
+                  Limited Edition Sweatshirt
                 </h3>
-                <p className="mt-1 text-sm text-gray-500">$36</p>
+                <p className="mt-1 text-sm text-gray-500">{75} €</p>
               </div>
             </Link>
           </div>

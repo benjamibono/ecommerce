@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { Link } from 'react-router-dom'
-import { Radio, RadioGroup } from '@headlessui/react'
-import { useCart } from '@/context/CartContext'
+import { useState, useEffect } from "react";
+import { Dialog, DialogPanel } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import { Radio, RadioGroup } from "@headlessui/react";
+import { useCart } from "@/context/CartContext";
 
 interface Product {
   id: number;
@@ -26,39 +26,39 @@ interface QuickViewProps {
 }
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function QuickView({ product, open, onClose }: QuickViewProps) {
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0])
-  const { addToCart } = useCart()
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
-  
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
+  const { addToCart } = useCart();
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
   // Handle window resize
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
+      setIsMobile(window.innerWidth < 768);
+    };
 
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // If on mobile, redirect to product page instead of showing QuickView
   useEffect(() => {
     if (isMobile && open) {
-      onClose()
-      window.location.href = `/product/${product.id}`
+      onClose();
+      window.location.href = `/product/${product.id}`;
     }
-  }, [isMobile, open, product.id, onClose])
+  }, [isMobile, open, product.id, onClose]);
 
   // Don't render anything on mobile
-  if (isMobile) return null
-  
+  if (isMobile) return null;
+
   // Calculate discount percentage if discountedPrice exists
-  const discountPercentage = product.discountedPrice 
-    ? Math.round((1 - product.discountedPrice / product.price) * 100) 
-    : 0
+  const discountPercentage = product.discountedPrice
+    ? Math.round((1 - product.discountedPrice / product.price) * 100)
+    : 0;
 
   const handleAddToCart = () => {
     if (!selectedSize.inStock) return;
@@ -76,9 +76,9 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
   };
 
   return (
-    <Dialog 
-      open={open} 
-      onClose={onClose} 
+    <Dialog
+      open={open}
+      onClose={onClose}
       className="relative z-50 hidden md:block" // Hide on mobile, show on md and up
     >
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
@@ -109,7 +109,9 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
                 )}
               </div>
               <div className="sm:col-span-8 lg:col-span-7">
-                <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{product.title}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">
+                  {product.title}
+                </h2>
 
                 <section aria-labelledby="information-heading" className="mt-2">
                   <h3 id="information-heading" className="sr-only">
@@ -118,11 +120,17 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
 
                   {product.discountedPrice ? (
                     <div className="flex items-center gap-4">
-                      <p className="text-2xl font-semibold text-red-600">${product.discountedPrice.toFixed(0)}</p>
-                      <p className="text-xl text-gray-500 line-through">${product.price.toFixed(0)}</p>
+                      <p className="text-2xl font-semibold text-red-600">
+                        {product.discountedPrice.toFixed(0)} €
+                      </p>
+                      <p className="text-xl text-gray-500 line-through">
+                        {product.price.toFixed(0)} €
+                      </p>
                     </div>
                   ) : (
-                    <p className="text-2xl text-gray-900">${product.price.toFixed(0)}</p>
+                    <p className="text-2xl text-gray-900">
+                      {product.price.toFixed(0)} €
+                    </p>
                   )}
                 </section>
 
@@ -133,7 +141,9 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
 
                   <div className="mt-8">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-medium text-gray-900">Size</h3>
+                      <h3 className="text-sm font-medium text-gray-900">
+                        Size
+                      </h3>
                     </div>
                     <RadioGroup
                       value={selectedSize}
@@ -148,10 +158,10 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
                           className={({ checked }) =>
                             classNames(
                               size.inStock
-                                ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
-                                : 'cursor-not-allowed bg-gray-50 text-gray-200',
-                              checked ? 'ring-2 ring-indigo-500' : '',
-                              'group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1'
+                                ? "cursor-pointer bg-white text-gray-900 shadow-sm"
+                                : "cursor-not-allowed bg-gray-50 text-gray-200",
+                              checked ? "ring-2 ring-indigo-500" : "",
+                              "group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1"
                             )
                           }
                         >
@@ -159,7 +169,7 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
                           {size.inStock ? (
                             <span
                               className={classNames(
-                                'pointer-events-none absolute -inset-px rounded-md border-2 border-transparent group-data-checked:border-indigo-500'
+                                "pointer-events-none absolute -inset-px rounded-md border-2 border-transparent group-data-checked:border-indigo-500"
                               )}
                               aria-hidden="true"
                             />
@@ -174,7 +184,13 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
                                 preserveAspectRatio="none"
                                 stroke="currentColor"
                               >
-                                <line x1="0" y1="100" x2="100" y2="0" vectorEffect="non-scaling-stroke" />
+                                <line
+                                  x1="0"
+                                  y1="100"
+                                  x2="100"
+                                  y2="0"
+                                  vectorEffect="non-scaling-stroke"
+                                />
                               </svg>
                             </span>
                           )}
@@ -190,7 +206,7 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
                       disabled={!selectedSize.inStock}
                       className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden disabled:bg-gray-400 disabled:cursor-not-allowed"
                     >
-                      {selectedSize.inStock ? 'Add to Cart' : 'Out of Stock'}
+                      {selectedSize.inStock ? "Add to Cart" : "Out of Stock"}
                     </button>
                     <Link
                       to={`/product/${product.id}`}
@@ -207,5 +223,5 @@ export default function QuickView({ product, open, onClose }: QuickViewProps) {
         </DialogPanel>
       </div>
     </Dialog>
-  )
-} 
+  );
+}

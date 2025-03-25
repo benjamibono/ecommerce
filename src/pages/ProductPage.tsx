@@ -1,54 +1,61 @@
-import { useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { Radio, RadioGroup } from '@headlessui/react'
-import FavoriteButton from '@/components/FavoriteButton'
-import ShareButton from '@/components/ShareButton'
-import { products } from '@/data/products'
-import { useCart } from '@/context/CartContext'
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { Radio, RadioGroup } from "@headlessui/react";
+import FavoriteButton from "@/components/FavoriteButton";
+import ShareButton from "@/components/ShareButton";
+import { products } from "@/data/products";
+import { useCart } from "@/context/CartContext";
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function ProductPage() {
-  const { id } = useParams<{ id: string }>()
-  const product = products.find(p => p.id === id)
-  const [selectedSize, setSelectedSize] = useState(product?.sizes[0])
-  const { addToCart } = useCart()
-  
+  const { id } = useParams<{ id: string }>();
+  const product = products.find((p) => p.id === id);
+  const [selectedSize, setSelectedSize] = useState(product?.sizes[0]);
+  const { addToCart } = useCart();
+
   if (!product) {
-    return <div className="text-center py-12">Product not found</div>
+    return <div className="text-center py-12">Product not found</div>;
   }
 
   const productForFavorite = {
     id: parseInt(product.id),
     title: product.name,
-    price: product.isOnSale && product.discountedPrice ? product.discountedPrice : product.price,
+    price:
+      product.isOnSale && product.discountedPrice
+        ? product.discountedPrice
+        : product.price,
     image: product.image,
-    description: product.description || '',
-  }
+    description: product.description || "",
+  };
 
-  const shareUrl = window.location.href
-  const shareTitle = `Check out ${product.name} on our store!`
-  const shareDescription = product.description || `${product.name} - ${product.category}`
+  const shareUrl = window.location.href;
+  const shareTitle = `Check out ${product.name} on our store!`;
+  const shareDescription =
+    product.description || `${product.name} - ${product.category}`;
 
   const handleAddToCart = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!selectedSize?.inStock) return
+    e.preventDefault();
+    if (!selectedSize?.inStock) return;
 
     addToCart({
       id: parseInt(product.id),
       name: product.name,
       href: `/product/${product.id}`,
       color: selectedSize.name,
-      price: product.isOnSale && product.discountedPrice ? product.discountedPrice : product.price,
+      price:
+        product.isOnSale && product.discountedPrice
+          ? product.discountedPrice
+          : product.price,
       imageSrc: product.image,
       imageAlt: product.description || product.name,
-    })
-  }
+    });
+  };
 
   // Calculate discount percentage if discountPercentage exists
-  const discountPercentage = product.discountPercentage || 0
+  const discountPercentage = product.discountPercentage || 0;
 
   return (
     <div className="bg-white">
@@ -76,8 +83,10 @@ export default function ProductPage() {
           {/* Product info */}
           <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
             <div className="flex items-start justify-between">
-              <h1 className="text-3xl font-bold tracking-tight text-gray-900">{product.name}</h1>
-              <ShareButton 
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+                {product.name}
+              </h1>
+              <ShareButton
                 url={shareUrl}
                 title={shareTitle}
                 description={shareDescription}
@@ -89,11 +98,17 @@ export default function ProductPage() {
               <div className="flex items-center gap-4">
                 {product.discountedPrice ? (
                   <>
-                    <p className="text-3xl tracking-tight text-red-600 font-semibold">${product.discountedPrice}</p>
-                    <p className="text-2xl tracking-tight text-gray-500 line-through">${product.price}</p>
+                    <p className="text-3xl tracking-tight text-red-600 font-semibold">
+                      {product.discountedPrice} €
+                    </p>
+                    <p className="text-2xl tracking-tight text-gray-500 line-through">
+                      {product.price} €
+                    </p>
                   </>
                 ) : (
-                  <p className="text-3xl tracking-tight text-gray-900">${product.price}</p>
+                  <p className="text-3xl tracking-tight text-gray-900">
+                    {product.price} €
+                  </p>
                 )}
               </div>
             </div>
@@ -120,7 +135,10 @@ export default function ProductPage() {
             <div className="mt-10">
               <h3 className="text-sm font-medium text-gray-900">Description</h3>
               <div className="mt-4 prose prose-sm text-gray-500">
-                <p>{product.description || `${product.name} - ${product.category}`}</p>
+                <p>
+                  {product.description ||
+                    `${product.name} - ${product.category}`}
+                </p>
               </div>
             </div>
 
@@ -129,7 +147,10 @@ export default function ProductPage() {
               <div className="mt-8">
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                  <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                  <a
+                    href="#"
+                    className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                  >
                     Size guide
                   </a>
                 </div>
@@ -146,10 +167,10 @@ export default function ProductPage() {
                       className={({ checked }) =>
                         classNames(
                           size.inStock
-                            ? 'cursor-pointer bg-white text-gray-900 shadow-sm'
-                            : 'cursor-not-allowed bg-gray-50 text-gray-200',
-                          checked ? 'ring-2 ring-indigo-500' : '',
-                          'group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1'
+                            ? "cursor-pointer bg-white text-gray-900 shadow-sm"
+                            : "cursor-not-allowed bg-gray-50 text-gray-200",
+                          checked ? "ring-2 ring-indigo-500" : "",
+                          "group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1"
                         )
                       }
                     >
@@ -157,7 +178,7 @@ export default function ProductPage() {
                       {size.inStock ? (
                         <span
                           className={classNames(
-                            'pointer-events-none absolute -inset-px rounded-md border-2 border-transparent'
+                            "pointer-events-none absolute -inset-px rounded-md border-2 border-transparent"
                           )}
                           aria-hidden="true"
                         />
@@ -172,7 +193,13 @@ export default function ProductPage() {
                             preserveAspectRatio="none"
                             stroke="currentColor"
                           >
-                            <line x1="0" y1="100" x2="100" y2="0" vectorEffect="non-scaling-stroke" />
+                            <line
+                              x1="0"
+                              y1="100"
+                              x2="100"
+                              y2="0"
+                              vectorEffect="non-scaling-stroke"
+                            />
                           </svg>
                         </span>
                       )}
@@ -186,7 +213,7 @@ export default function ProductPage() {
                 disabled={!selectedSize?.inStock}
                 className="mt-8 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                {selectedSize?.inStock ? 'Add to Cart' : 'Out of Stock'}
+                {selectedSize?.inStock ? "Add to Cart" : "Out of Stock"}
               </button>
             </form>
 
@@ -201,5 +228,5 @@ export default function ProductPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

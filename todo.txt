@@ -2,6 +2,8 @@
 
 ## High Priority
 - Make design responsive for 4k screens
+- change all images for new ones
+- make product card and page match
 
 ## Medium Priority
 - Implement search functionality with autocomplete

@@ -4,6 +4,7 @@ import Fuse, { FuseResult } from "fuse.js";
 import { products } from "@/data/products";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog } from "@headlessui/react";
+import { getImageUrl } from "@/utils/cloudinary";
 
 // Create Fuse instance outside component to avoid recreating it on every render
 const fuse = new Fuse(products, {
@@ -136,7 +137,10 @@ export default function SearchBar({ isOpen, onClose }: SearchBarProps) {
                     role="option"
                   >
                     <img
-                      src={item.image}
+                      src={getImageUrl(item.imagePublicId, {
+                        width: 48,
+                        height: 48,
+                      })}
                       alt={item.name}
                       className="h-12 w-12 rounded-md object-cover"
                     />

@@ -1,9 +1,12 @@
+import { getImageUrl } from "@/utils/cloudinary";
+
 export interface Product {
   id: string;
   name: string;
   price: number;
   discountedPrice?: number;
   image: string;
+  imagePublicId: string;
   category: string;
   isNew?: boolean;
   isOnSale?: boolean;
@@ -29,7 +32,8 @@ export const products: Product[] = [
     id: "1",
     name: "1",
     price: 50,
-    image: "/images/1.png",
+    image: getImageUrl("1"),
+    imagePublicId: "1",
     category: "Hoodies",
     isNew: true,
     sizes: [
@@ -46,7 +50,8 @@ export const products: Product[] = [
     price: 80,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(80, 30),
-    image: "/images/2.png",
+    image: getImageUrl("2"),
+    imagePublicId: "2",
     category: "Hoodies",
     isOnSale: true,
     sizes: [
@@ -60,7 +65,8 @@ export const products: Product[] = [
     id: "3",
     name: "3",
     price: 60,
-    image: "/images/3.png",
+    image: getImageUrl("3"),
+    imagePublicId: "3",
     category: "Hoodies",
     sizes: [
       { name: "XS", inStock: true },
@@ -73,7 +79,8 @@ export const products: Product[] = [
     id: "4",
     name: "4",
     price: 90,
-    image: "/images/4.png",
+    image: getImageUrl("4"),
+    imagePublicId: "4",
     category: "Hoodies",
     isNew: true,
     sizes: [
@@ -88,7 +95,8 @@ export const products: Product[] = [
     price: 70,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(70, 30),
-    image: "/images/5.png",
+    image: getImageUrl("5"),
+    imagePublicId: "5",
     category: "Hoodies",
     isOnSale: true,
     sizes: [
@@ -103,7 +111,8 @@ export const products: Product[] = [
     id: "6",
     name: "6",
     price: 100,
-    image: "/images/6.png",
+    image: getImageUrl("6"),
+    imagePublicId: "6",
     category: "Hoodies",
     sizes: [
       { name: "S", inStock: true },
@@ -116,7 +125,8 @@ export const products: Product[] = [
     id: "7",
     name: "7",
     price: 85,
-    image: "/images/7.png",
+    image: getImageUrl("7"),
+    imagePublicId: "7",
     category: "Hoodies",
     sizes: [
       { name: "XS", inStock: true },
@@ -129,7 +139,8 @@ export const products: Product[] = [
     id: "8",
     name: "8",
     price: 130,
-    image: "/images/8.png",
+    image: getImageUrl("8"),
+    imagePublicId: "8",
     category: "Hoodies",
     isNew: true,
     sizes: [
@@ -142,7 +153,8 @@ export const products: Product[] = [
     id: "9",
     name: "9",
     price: 25,
-    image: "/images/9.png",
+    image: getImageUrl("9"),
+    imagePublicId: "9",
     category: "T-Shirts",
     isNew: true,
     sizes: [
@@ -159,7 +171,8 @@ export const products: Product[] = [
     price: 35,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(35, 30),
-    image: "/images/10.png",
+    image: getImageUrl("10"),
+    imagePublicId: "10",
     category: "T-Shirts",
     isOnSale: true,
     sizes: [
@@ -173,7 +186,8 @@ export const products: Product[] = [
     id: "11",
     name: "11",
     price: 30,
-    image: "/images/11.png",
+    image: getImageUrl("11"),
+    imagePublicId: "11",
     category: "T-Shirts",
     sizes: [
       { name: "XS", inStock: true },
@@ -186,7 +200,8 @@ export const products: Product[] = [
     id: "12",
     name: "12",
     price: 40,
-    image: "/images/12.png",
+    image: getImageUrl("12"),
+    imagePublicId: "12",
     category: "T-Shirts",
     isNew: true,
     sizes: [
@@ -201,7 +216,8 @@ export const products: Product[] = [
     price: 35,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(35, 30),
-    image: "/images/13.png",
+    image: getImageUrl("13"),
+    imagePublicId: "13",
     category: "T-Shirts",
     isOnSale: true,
     sizes: [
@@ -216,7 +232,8 @@ export const products: Product[] = [
     id: "14",
     name: "14",
     price: 35,
-    image: "/images/14.png",
+    image: getImageUrl("14"),
+    imagePublicId: "14",
     category: "T-Shirts",
     sizes: [
       { name: "S", inStock: true },
@@ -229,7 +246,8 @@ export const products: Product[] = [
     id: "15",
     name: "15",
     price: 30,
-    image: "/images/15.png",
+    image: getImageUrl("15"),
+    imagePublicId: "15",
     category: "T-Shirts",
     isLimitedEdition: true,
     sizes: [
@@ -243,7 +261,8 @@ export const products: Product[] = [
     id: "16",
     name: "16",
     price: 45,
-    image: "/images/16.png",
+    image: getImageUrl("16"),
+    imagePublicId: "16",
     category: "T-Shirts",
     isNew: true,
     sizes: [
@@ -256,7 +275,8 @@ export const products: Product[] = [
     id: "17",
     name: "17",
     price: 45,
-    image: "/images/17.png",
+    image: getImageUrl("17"),
+    imagePublicId: "17",
     category: "Sweatshirts",
     isNew: true,
     sizes: [
@@ -273,7 +293,8 @@ export const products: Product[] = [
     price: 65,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(65, 30),
-    image: "/images/18.png",
+    image: getImageUrl("18"),
+    imagePublicId: "18",
     category: "Sweatshirts",
     isOnSale: true,
     sizes: [
@@ -287,7 +308,8 @@ export const products: Product[] = [
     id: "19",
     name: "19",
     price: 55,
-    image: "/images/19.png",
+    image: getImageUrl("19"),
+    imagePublicId: "19",
     category: "Sweatshirts",
     sizes: [
       { name: "XS", inStock: true },
@@ -300,7 +322,8 @@ export const products: Product[] = [
     id: "20",
     name: "20",
     price: 75,
-    image: "/images/20.png",
+    image: getImageUrl("20"),
+    imagePublicId: "20",
     category: "Sweatshirts",
     isNew: true,
     sizes: [
@@ -315,7 +338,8 @@ export const products: Product[] = [
     price: 60,
     discountPercentage: 30,
     discountedPrice: calculateDiscountedPrice(60, 30),
-    image: "/images/21.png",
+    image: getImageUrl("21"),
+    imagePublicId: "21",
     category: "Sweatshirts",
     isOnSale: true,
     sizes: [

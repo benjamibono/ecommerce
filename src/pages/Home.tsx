@@ -195,7 +195,7 @@ const Home = () => {
             <Link to="/product/4" className="group">
               <div className="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
                 <img
-                  src="/images/20.png"
+                  src="/images/4.png"
                   alt="Limited Edition Sweatshirt"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />

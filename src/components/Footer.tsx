@@ -52,13 +52,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/category/sweatshirts" className="text-sm text-gray-600 hover:text-gray-900">
-                  Sweatshirts
+                <Link to="/category/leggings" className="text-sm text-gray-600 hover:text-gray-900">
+                  Leggings
                 </Link>
               </li>
               <li>
-                <Link to="/new" className="text-sm text-gray-600 hover:text-gray-900">
-                  New Arrivals
+                <Link to="/category/tops" className="text-sm text-gray-600 hover:text-gray-900">
+                  Tops
                 </Link>
               </li>
               <li>

@@ -9,6 +9,7 @@ interface ProductCardProps {
   price: number;
   discountedPrice?: number;
   image: string;
+  additionalImages?: { url: string; publicId: string }[];
   category: string;
   isNew?: boolean;
   isOnSale?: boolean;

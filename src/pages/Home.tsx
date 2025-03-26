@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative bg-gray-900 min-h-[50dvh]">
+      <div className="relative bg-gray-900 min-h-[50dvh] 2xl:min-h-[70dvh]">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
@@ -15,19 +15,19 @@ const Home = () => {
           />
           <div className="absolute inset-0 bg-gray-900 opacity-50" />
         </div>
-        <div className="relative max-w-7xl mx-auto py-32 px-4 sm:py-48 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+        <div className="relative mx-auto py-32 px-4 sm:py-48 sm:px-6 lg:px-8 max-w-[90rem] 2xl:max-w-none 2xl:px-24 2xl:py-72">
+          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl 2xl:text-8xl max-w-4xl">
             New arrivals are here
           </h1>
-          <p className="mt-6 text-xl text-gray-300 max-w-3xl">
+          <p className="mt-6 text-xl text-gray-300 max-w-3xl 2xl:text-3xl 2xl:max-w-4xl">
             The new arrivals have, well, newly arrived. Check out the latest
             options from our summer small-batch release while they're still in
             stock.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 2xl:mt-16">
             <Link
               to="/new"
-              className="inline-block bg-white border border-transparent rounded-md py-3 px-8 font-medium text-gray-900 hover:bg-gray-100"
+              className="inline-block bg-white border border-transparent rounded-md py-3 px-8 font-medium text-gray-900 hover:bg-gray-100 2xl:text-2xl 2xl:px-16 2xl:py-6"
             >
               Shop New Arrivals
             </Link>
@@ -36,71 +36,82 @@ const Home = () => {
       </div>
 
       {/* Categories Section - Bento Grid */}
-      <div className="bg-white py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+      <div className="bg-white py-12 sm:py-16 2xl:py-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-[90rem] 2xl:max-w-none 2xl:px-24">
+          <div className="flex items-center justify-between mb-6 2xl:mb-16">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 2xl:text-5xl">
               Shop by Category
             </h2>
-            {/* <Link to="/categories" className="text-base font-medium text-indigo-600 hover:text-indigo-500">
-              Browse all categories <span aria-hidden="true">→</span>
-            </Link> */}
           </div>
 
-          <div className="grid grid-cols-12 gap-4">
-            {/* T-Shirts - Large Image */}
+          <div className="grid h-[800px] 2xl:h-[1200px] w-full gap-4 p-2 grid-cols-4 grid-rows-10">
+            {/* T-Shirts - Large Left */}
             <Link
               to="/category/t-shirts"
-              className="col-span-12 md:col-span-6 relative rounded-lg overflow-hidden group h-[28rem] md:h-[36rem] block"
+              className="col-span-2 row-span-6 relative rounded-lg overflow-hidden group block"
             >
               <img
                 src={getImageUrl("9")}
-                alt="Classic T-Shirt"
+                alt="T-Shirts Collection"
                 className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-6 text-white">
-                <h3 className="text-2xl font-bold">T-Shirts</h3>
-                <p className="mt-2 text-sm">Starting at 25 €</p>
+              <div className="absolute bottom-0 left-0 p-6 2xl:p-12 text-white">
+                <h3 className="text-2xl font-bold 2xl:text-5xl">T-Shirts</h3>
+                <p className="mt-2 text-sm 2xl:text-xl">Starting at 25 €</p>
               </div>
             </Link>
 
-            {/* Right Column - Two Smaller Images */}
-            <div className="col-span-12 md:col-span-6 grid grid-rows-2 gap-4">
-              {/* Hoodies */}
-              <Link
-                to="/category/hoodies"
-                className="relative rounded-lg overflow-hidden group h-56 md:h-[17.5rem] block"
-              >
-                <img
-                  src={getImageUrl("13")}
-                  alt="Graphic Print T-Shirt"
-                  className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-4 text-white">
-                  <h3 className="text-2xl font-bold">Hoodies</h3>
-                  <p className="mt-2 text-sm">Starting at 50 €</p>
-                </div>
-              </Link>
+            {/* Hoodies - Top Right */}
+            <Link
+              to="/category/hoodies"
+              className="col-span-2 row-span-3 relative rounded-lg overflow-hidden group block"
+            >
+              <img
+                src={getImageUrl("13")}
+                alt="Hoodies Collection"
+                className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 2xl:p-10 text-white">
+                <h3 className="text-2xl font-bold 2xl:text-4xl">Hoodies</h3>
+                <p className="mt-2 text-sm 2xl:text-xl">Starting at 50 €</p>
+              </div>
+            </Link>
 
-              {/* Sweatshirts */}
-              <Link
-                to="/category/sweatshirts"
-                className="relative rounded-lg overflow-hidden group h-56 md:h-[17.5rem] block"
-              >
-                <img
-                  src={getImageUrl("17")}
-                  alt="Classic Sweatshirt"
-                  className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-4 text-white">
-                  <h3 className="text-2xl font-bold">Sweatshirts</h3>
-                  <p className="mt-2 text-sm">Starting at 45 €</p>
-                </div>
-              </Link>
-            </div>
+            {/* Leggings - Middle Right */}
+            <Link
+              to="/category/leggings"
+              className="col-span-2 row-span-3 relative rounded-lg overflow-hidden group block"
+            >
+              <img
+                src={getImageUrl("2")}
+                alt="Leggings Collection"
+                className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-4 2xl:p-10 text-white">
+                <h3 className="text-2xl font-bold 2xl:text-4xl">Leggings</h3>
+                <p className="mt-2 text-sm 2xl:text-xl">Starting at 25 €</p>
+              </div>
+            </Link>
+
+            {/* Tops - Bottom Full Width */}
+            <Link
+              to="/category/tops"
+              className="col-span-4 row-span-6 relative rounded-lg overflow-hidden group block"
+            >
+              <img
+                src={getImageUrl("32")}
+                alt="Tops Collection"
+                className="w-full h-full object-top object-cover group-hover:opacity-75 transition-opacity duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-6 2xl:p-12 text-white">
+                <h3 className="text-2xl font-bold 2xl:text-5xl">Tops</h3>
+                <p className="mt-2 text-sm 2xl:text-xl">Starting at 30 €</p>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -115,20 +126,20 @@ const Home = () => {
           />
           <div className="absolute inset-0 bg-gray-900 opacity-40" />
         </div>
-        <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+        <div className="relative mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 max-w-[90rem] 2xl:max-w-none 2xl:px-24 2xl:py-64 text-center">
+          <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl 2xl:text-7xl">
             Crafting Timeless Style
           </h2>
-          <p className="mt-6 text-xl text-gray-100 max-w-3xl mx-auto">
+          <p className="mt-6 text-xl text-gray-100 max-w-3xl mx-auto 2xl:text-3xl 2xl:max-w-5xl">
             We're dedicated to creating sustainable, high-quality clothing that
             stands the test of time. Our commitment to ethical manufacturing and
             timeless design means each piece is crafted to be both
             environmentally conscious and eternally stylish.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 2xl:mt-16">
             <Link
               to="/about"
-              className="inline-block bg-white border border-transparent rounded-md py-3 px-8 font-medium text-gray-900 hover:bg-gray-100 transition-colors duration-200"
+              className="inline-block bg-white border border-transparent rounded-md py-3 px-8 font-medium text-gray-900 hover:bg-gray-100 transition-colors duration-200 2xl:text-2xl 2xl:px-16 2xl:py-6"
               aria-label="Read our story"
               tabIndex={0}
             >
@@ -137,7 +148,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       {/* Our Favorites Section */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
@@ -155,57 +165,57 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Classic Hoodie */}
+            {/* Essential Bra */}
             <Link to="/product/1" className="group">
               <div className="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
                 <img
                   src={getImageUrl("1")}
-                  alt="Classic Hoodie"
+                  alt="Essential Bra"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
               </div>
               <div className="mt-4">
                 <h3 className="text-lg font-medium text-gray-900">
-                  Classic Hoodie
+                  Essential Bra
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">50 €</p>
               </div>
             </Link>
 
-            {/* Premium Cotton T-Shirt */}
+            {/* Vintage Hoodie */}
             <Link to="/product/10" className="group">
               <div className="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
                 <img
                   src={getImageUrl("10")}
-                  alt="Premium Cotton T-Shirt"
+                  alt="Vintage Hoodie"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
               </div>
               <div className="mt-4">
                 <h3 className="text-lg font-medium text-gray-900">
-                  Premium Cotton T-Shirt
+                  Vintage Hoodie
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
-                  <span className="line-through text-gray-400">{35} €</span>{" "}
-                  <span className="text-red-600">{24.5} €</span>
+                  <span className="line-through text-gray-400">35 €</span>{" "}
+                  <span className="text-red-600">24.5 €</span>
                 </p>
               </div>
             </Link>
 
-            {/* Limited Edition Sweatshirt */}
+            {/* Performance Tank Top */}
             <Link to="/product/4" className="group">
               <div className="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
                 <img
                   src={getImageUrl("4")}
-                  alt="Limited Edition Sweatshirt"
+                  alt="Performance Tank Top"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
               </div>
               <div className="mt-4">
                 <h3 className="text-lg font-medium text-gray-900">
-                  Limited Edition Sweatshirt
+                  Performance Tank Top
                 </h3>
-                <p className="mt-1 text-sm text-gray-500">{75} €</p>
+                <p className="mt-1 text-sm text-gray-500">90 €</p>
               </div>
             </Link>
           </div>
@@ -240,28 +250,28 @@ const Home = () => {
             <div className="grid grid-cols-2 gap-4 p-8">
               <div className="aspect-[4/3] rounded-lg overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1618677831708-0e7fda3148b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  src={getImageUrl("18")}
                   alt="Store interior with clothing display"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="aspect-[4/3] rounded-lg overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  src={getImageUrl("17")}
                   alt="Model wearing our clothing"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="aspect-[4/3] rounded-lg overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  src={getImageUrl("19")}
                   alt="Folded t-shirts on shelf"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="aspect-[4/3] rounded-lg overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                  src={getImageUrl("20")}
                   alt="Clothing on hangers"
                   className="w-full h-full object-cover"
                 />
@@ -270,16 +280,15 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       {/* Services Section */}
       <div className="bg-gray-50">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 2xl:max-w-[90rem] 2xl:py-40">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 2xl:gap-16">
             {/* Free returns */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 mb-6 bg-white rounded-full shadow-lg flex items-center justify-center">
+              <div className="w-16 h-16 mb-6 bg-white rounded-full shadow-lg flex items-center justify-center 2xl:w-24 2xl:h-24">
                 <svg
-                  className="w-8 h-8 text-indigo-600"
+                  className="w-8 h-8 text-indigo-600 2xl:w-12 2xl:h-12"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -292,10 +301,10 @@ const Home = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 2xl:text-2xl">
                 Free returns
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm 2xl:text-xl">
                 Not what you expected? Place it back in the parcel and attach
                 the pre-paid postage stamp.
               </p>
@@ -303,9 +312,9 @@ const Home = () => {
 
             {/* Same day delivery */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 mb-6 bg-white rounded-full shadow-lg flex items-center justify-center">
+              <div className="w-16 h-16 mb-6 bg-white rounded-full shadow-lg flex items-center justify-center 2xl:w-24 2xl:h-24">
                 <svg
-                  className="w-8 h-8 text-indigo-600"
+                  className="w-8 h-8 text-indigo-600 2xl:w-12 2xl:h-12"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -318,10 +327,10 @@ const Home = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 2xl:text-2xl">
                 Same day delivery
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm 2xl:text-xl">
                 We offer a delivery service that has never been done before.
                 Checkout today and receive your products within hours.
               </p>
@@ -329,9 +338,9 @@ const Home = () => {
 
             {/* All year discount */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 mb-6 bg-white rounded-full shadow-lg flex items-center justify-center">
+              <div className="w-16 h-16 mb-6 bg-white rounded-full shadow-lg flex items-center justify-center 2xl:w-24 2xl:h-24">
                 <svg
-                  className="w-8 h-8 text-indigo-600"
+                  className="w-8 h-8 text-indigo-600 2xl:w-12 2xl:h-12"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -344,10 +353,10 @@ const Home = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 2xl:text-2xl">
                 All year discount
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm 2xl:text-xl">
                 Looking for a deal? You can use the code "ALLYEAR" at checkout
                 and get money off all year round.
               </p>
@@ -355,9 +364,9 @@ const Home = () => {
 
             {/* For the planet */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 mb-6 bg-white rounded-full shadow-lg flex items-center justify-center">
+              <div className="w-16 h-16 mb-6 bg-white rounded-full shadow-lg flex items-center justify-center 2xl:w-24 2xl:h-24">
                 <svg
-                  className="w-8 h-8 text-indigo-600"
+                  className="w-8 h-8 text-indigo-600 2xl:w-12 2xl:h-12"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -370,10 +379,10 @@ const Home = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2 2xl:text-2xl">
                 For the planet
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-600 text-sm 2xl:text-xl">
                 We've pledged 1% of sales to the preservation and restoration of
                 the natural environment.
               </p>

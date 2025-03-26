@@ -17,7 +17,6 @@ import {
   UserIcon,
   HeartIcon,
   XMarkIcon,
-  SwatchIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -39,16 +38,16 @@ const categories = [
     icon: ShoppingBagIcon,
   },
   {
-    name: "Sweatshirts",
-    description: "Cozy sweatshirts for everyday",
-    href: "/category/sweatshirts",
+    name: "Leggings",
+    description: "High-performance leggings",
+    href: "/category/leggings",
     icon: ShoppingBagIcon,
   },
   {
-    name: "Collections",
-    description: "Curated seasonal collections",
-    href: "/category/collections",
-    icon: SwatchIcon,
+    name: "Tops",
+    description: "Stylish and comfortable tops",
+    href: "/category/tops",
+    icon: ShoppingBagIcon,
   },
   {
     name: "All Products",
@@ -137,12 +136,14 @@ export default function Navbar() {
           <a href="/new" className="text-sm/6 font-semibold text-gray-900">
             New Arrivals
           </a>
+          {/*
           <a
             href="/collections"
             className="text-sm/6 font-semibold text-gray-900"
           >
             Collections
           </a>
+          */}
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-6">
           <div className="flex items-center gap-4">
@@ -237,12 +238,14 @@ export default function Navbar() {
                 >
                   New Arrivals
                 </a>
+                {/*
                 <a
                   href="/collections"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Collections
                 </a>
+                */}
               </div>
               <div className="py-6 space-y-2">
                 {userActions.map((item) => (

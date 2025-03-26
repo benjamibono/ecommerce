@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Radio, RadioGroup } from "@headlessui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import FavoriteButton from "@/components/FavoriteButton";
 import ShareButton from "@/components/ShareButton";
 import { products } from "@/data/products";
@@ -14,6 +15,7 @@ export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
   const [selectedSize, setSelectedSize] = useState(product?.sizes[0]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { addToCart } = useCart();
 
   if (!product) {
@@ -35,6 +37,22 @@ export default function ProductPage() {
   const shareTitle = `Check out ${product.name} on our store!`;
   const shareDescription =
     product.description || `${product.name} - ${product.category}`;
+
+  // Create array of all images
+  const allImages = [
+    { url: product.image, publicId: product.imagePublicId },
+    ...(product.additionalImages || []),
+  ];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+  };
+
+  const previousImage = () => {
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + allImages.length) % allImages.length
+    );
+  };
 
   const handleAddToCart = (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,10 +83,26 @@ export default function ProductPage() {
           <div className="flex flex-col">
             <div className="relative">
               <img
-                src={product.image}
+                src={allImages[currentImageIndex].url}
                 alt={product.name}
                 className="h-full w-full rounded-lg object-cover object-center"
               />
+              {allImages.length > 1 && (
+                <>
+                  <button
+                    onClick={previousImage}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 hover:bg-white"
+                  >
+                    <ChevronLeftIcon className="h-6 w-6" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 hover:bg-white"
+                  >
+                    <ChevronRightIcon className="h-6 w-6" />
+                  </button>
+                </>
+              )}
               {product.isOnSale && product.discountedPrice && (
                 <span className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-md text-sm font-medium">
                   -{discountPercentage}% OFF
@@ -78,6 +112,27 @@ export default function ProductPage() {
                 <FavoriteButton product={productForFavorite} />
               </div>
             </div>
+            {allImages.length > 1 && (
+              <div className="mt-4 flex gap-4 justify-center">
+                {allImages.map((image, index) => (
+                  <button
+                    key={image.publicId}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-16 h-16 rounded-lg overflow-hidden ${
+                      currentImageIndex === index
+                        ? "ring-2 ring-indigo-500"
+                        : "ring-1 ring-gray-200"
+                    }`}
+                  >
+                    <img
+                      src={image.url}
+                      alt={`${product.name} view ${index + 1}`}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Product info */}

@@ -192,7 +192,7 @@ const Footer = () => {
           </div>
           <div className="mt-4 text-center md:text-left">
             <p className="text-xs text-gray-500">
-              Designed and built with ❤️ for quality clothing and happy customers.
+              Designed and built with ❤️
             </p>
           </div>
         </div>

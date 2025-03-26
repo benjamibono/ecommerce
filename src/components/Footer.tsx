@@ -187,7 +187,7 @@ const Footer = () => {
               </a>
             </div>
             <p className="text-sm text-gray-500">
-              &copy; {currentYear} Your Store Name. All rights reserved.
+              &copy; {currentYear} NexBuy. All rights reserved.
             </p>
           </div>
           <div className="mt-4 text-center md:text-left">

@@ -29,7 +29,7 @@ const SignUp: React.FC = () => {
             <div className="w-full border-t border-gray-200" />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="bg-white rounded-md px-2 text-gray-500">Or continue with</span>
+            <span className="bg-white rounded-lg px-2 text-gray-500">Or continue with</span>
           </div>
         </div>
 

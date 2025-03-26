@@ -5,8 +5,8 @@ import ProductPage from "@/pages/ProductPage.tsx";
 import Cart from "@/pages/Cart.tsx";
 import Hoodies from "@/pages/Hoodies.tsx";
 import TShirts from "@/pages/TShirts.tsx";
-import Leggings from "@/pages/Leggings.tsx";
-import Tops from "@/pages/Tops.tsx";
+import Sweatshirts from "@/pages/Sweatshirts.tsx";
+import Collections from "@/pages/Collections.tsx";
 import Products from "@/pages/Products.tsx";
 import Login from "@/pages/Login";
 import SignUp from "@/pages/SignUp";
@@ -36,8 +36,8 @@ const App: React.FC = () => {
             <Route path="/cart" element={<Cart />} />
             <Route path="/category/hoodies" element={<Hoodies />} />
             <Route path="/category/t-shirts" element={<TShirts />} />
-            <Route path="/category/leggings" element={<Leggings />} />
-            <Route path="/category/tops" element={<Tops />} />
+            <Route path="/category/sweatshirts" element={<Sweatshirts />} />
+            <Route path="/category/collections" element={<Collections />} />
             <Route path="/products" element={<Products />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />

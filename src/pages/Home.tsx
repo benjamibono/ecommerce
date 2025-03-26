@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { getImageUrl } from "@/utils/cloudinary";
 
 const Home = () => {
   return (
@@ -53,7 +54,7 @@ const Home = () => {
               className="col-span-12 md:col-span-6 relative rounded-lg overflow-hidden group h-[28rem] md:h-[36rem] block"
             >
               <img
-                src="/images/9.png"
+                src={getImageUrl("9")}
                 alt="Classic T-Shirt"
                 className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
               />
@@ -72,7 +73,7 @@ const Home = () => {
                 className="relative rounded-lg overflow-hidden group h-56 md:h-[17.5rem] block"
               >
                 <img
-                  src="/images/13.png"
+                  src={getImageUrl("13")}
                   alt="Graphic Print T-Shirt"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
@@ -89,7 +90,7 @@ const Home = () => {
                 className="relative rounded-lg overflow-hidden group h-56 md:h-[17.5rem] block"
               >
                 <img
-                  src="/images/17.png"
+                  src={getImageUrl("17")}
                   alt="Classic Sweatshirt"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
@@ -158,7 +159,7 @@ const Home = () => {
             <Link to="/product/1" className="group">
               <div className="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
                 <img
-                  src="/images/1.png"
+                  src={getImageUrl("1")}
                   alt="Classic Hoodie"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
@@ -175,7 +176,7 @@ const Home = () => {
             <Link to="/product/10" className="group">
               <div className="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
                 <img
-                  src="/images/10.png"
+                  src={getImageUrl("10")}
                   alt="Premium Cotton T-Shirt"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />
@@ -195,7 +196,7 @@ const Home = () => {
             <Link to="/product/4" className="group">
               <div className="aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden">
                 <img
-                  src="/images/4.png"
+                  src={getImageUrl("4")}
                   alt="Limited Edition Sweatshirt"
                   className="w-full h-full object-center object-cover group-hover:opacity-75 transition-opacity duration-300"
                 />

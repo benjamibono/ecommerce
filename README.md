@@ -39,6 +39,7 @@ A full-featured e-commerce platform built with React and TypeScript, providing a
 - 📱 Fully Responsive Design
 - 🎨 Modern and Clean Interface
 - 🔒 Secure Authentication
+- 🖼️ Cloudinary CDN integration for optimized image delivery and transformations
 
 ## 🚀 Technologies Used
 
@@ -46,6 +47,7 @@ A full-featured e-commerce platform built with React and TypeScript, providing a
 - TypeScript
 - Tailwind CSS
 - Heroicons
+- Cloudinary
 
 ## 🛠️ Installation
 
@@ -114,3 +116,4 @@ This project is free to use for any purpose. No license restrictions apply.
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Heroicons](https://heroicons.com/)
 - [React](https://reactjs.org/)
+- [Cloudinary](https://cloudinary.com/)

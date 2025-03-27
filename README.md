@@ -2,7 +2,28 @@
 
 A full-featured e-commerce platform built with React and TypeScript, providing a seamless shopping experience from browsing to checkout.
 
-🚧 **Project Status:** Work in Progress 🚧
+<div align="center">
+  <a href="https://react.dev" target="_blank">
+    <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+  </a>
+  <a href="https://tailwindcss.com" target="_blank">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  </a>
+  <a href="https://vercel.com" target="_blank">
+    <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+  </a>
+  <a href="https://cloudinary.com" target="_blank">
+    <img src="https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white" alt="Cloudinary" />
+  </a>
+</div>
+
+<br />
+
+<div align="center">
+  <div style="display: flex; justify-content: center; gap: 20px; margin: 40px 0;">
+    <img src="/public/preview.webp" alt="NexBuy Desktop Version" width="100%" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+  </div>
+</div>
 
 ## ✨ Features
 
